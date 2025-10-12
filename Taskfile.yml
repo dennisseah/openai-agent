@@ -1,0 +1,40 @@
+version: "3"
+tasks:
+  deterministic:
+    desc: "Deterministic pattern"
+    cmds:
+      - python -m openai_agent.agentic_patterns.deterministic_flow
+
+  tool-selection:
+    desc: "Tool selection pattern"
+    cmds:
+      - python -m openai_agent.agentic_patterns.tool_selection
+
+  test-unit:
+    desc: "Runs unit tests with pytest"
+    cmds:
+      - python -m pytest -p no:warnings --cov-report term-missing
+        --cov=openai_agent tests
+
+  util-format-code:
+    desc: "Formats the code using ruff"
+    cmds:
+      - ruff format .
+
+  util-lint:
+    desc: "Runs linting with Ruff"
+    cmds:
+      - uv run ruff check .
+      - pyright .
+
+  util-gen-requirements-txt:
+    desc: "Generates requirements.txt from the current environment"
+    cmds:
+      - uv lock
+      - uv export --frozen --no-dev --output-file=requirements.txt
+      - uv export --frozen --all-groups --output-file=requirements.dev.txt
+
+  util-pip-audit:
+    desc: "Runs pip-audit to check for vulnerabilities"
+    cmds:
+      - pip-audit -r requirements.txt

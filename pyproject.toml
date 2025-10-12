@@ -1,0 +1,52 @@
+[project]
+name = "openai-agent"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "azure-core>=1.35.1",
+    "azure-identity>=1.25.1",
+    "azureml-mlflow>=1.60.0.post1",
+    "lagom>=2.7.7",
+    "openai>=2.3.0",
+    "openai-agents>=0.1.0",
+    "python-dotenv>=1.1.1",
+]
+
+[dependency-groups]
+dev = [
+    "pip-audit>=2.9.0",
+    "pre-commit>=4.3.0",
+    "pyright>=1.1.406",
+    "pytest>=8.4.2",
+    "pytest-asyncio>=1.2.0",
+    "pytest-cov>=7.0.0",
+    "pytest-mock>=3.15.1",
+    "ruff>=0.14.0",
+]
+
+[tool.ruff]
+exclude = ["typings"]
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "TID"]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+exclude = ["typings", ".venv", ".vscode", ".git"]
+
+[tool.coverage.report]
+fail_under = 90
+
+[tool.coverage.run]
+omit = [
+    "*/__init__.py",
+    "openai_agent/protocols/*",
+    "openai_agent/agentic_patterns/*",
+    "openai_agent/hosting.py"
+]

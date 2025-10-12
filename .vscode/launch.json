@@ -1,0 +1,17 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "deterministic",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "openai_agent.agentic_patterns.deterministic_flow"
+    },
+    {
+      "name": "selection",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "openai_agent.agentic_patterns.tool_selection"
+    }
+  ]
+}
