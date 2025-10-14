@@ -1,13 +1,9 @@
 import asyncio
 
-from agents import Agent, OpenAIChatCompletionsModel, Runner, set_tracing_disabled
+from agents import Agent, Runner
 from pydantic import BaseModel
 
-from openai_agent.hosting import container
-from openai_agent.protocols.i_azure_openai_service import IAzureOpenAIService
-
-set_tracing_disabled(True)
-azure_openai_service = container[IAzureOpenAIService]
+from openai_agent.agentic_patterns.common.llm_model import llm_model
 
 
 class DepartmentOutput(BaseModel):
@@ -26,10 +22,7 @@ symptom_agent = Agent(
         "professionals would recognize. Prioritize symptoms by frequency and "
         "diagnostic significance."
     ),
-    model=OpenAIChatCompletionsModel(
-        model=azure_openai_service.get_deployed_model_name(),
-        openai_client=azure_openai_service.get_client(),
-    ),
+    model=llm_model,
 )
 medical_agent = Agent(
     name="medical_agent",
@@ -41,10 +34,7 @@ medical_agent = Agent(
         "severity, urgency, and specialization requirements. Provide professional, "
         "evidence-based recommendations suitable for healthcare routing decisions."
     ),
-    model=OpenAIChatCompletionsModel(
-        model=azure_openai_service.get_deployed_model_name(),
-        openai_client=azure_openai_service.get_client(),
-    ),
+    model=llm_model,
     output_type=DepartmentOutput,
 )
 

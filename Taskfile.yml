@@ -10,6 +10,26 @@ tasks:
     cmds:
       - python -m openai_agent.agentic_patterns.tool_selection
 
+  tool-conditional:
+    desc: "Tool conditional pattern"
+    cmds:
+      - python -m openai_agent.agentic_patterns.tool_conditional
+
+  tool-force-tool-use-default:
+    desc: "Force tool use pattern with default behavior"
+    cmds:
+      - python -m openai_agent.agentic_patterns.force_tool_use -t default
+
+  tool-force-tool-use-first-tool:
+    desc: "Force tool use pattern with first tool behavior"
+    cmds:
+      - python -m openai_agent.agentic_patterns.force_tool_use -t first_tool
+
+  tool-force-tool-use-custom:
+    desc: "Force tool use pattern with custom behavior"
+    cmds:
+      - python -m openai_agent.agentic_patterns.force_tool_use -t custom
+
   test-unit:
     desc: "Runs unit tests with pytest"
     cmds:

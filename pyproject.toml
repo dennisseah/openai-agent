@@ -8,9 +8,10 @@ dependencies = [
     "azure-core>=1.35.1",
     "azure-identity>=1.25.1",
     "azureml-mlflow>=1.60.0.post1",
+    "faker>=37.11.0",
     "lagom>=2.7.7",
-    "openai>=2.3.0",
-    "openai-agents>=0.1.0",
+    "openai>=1.109.1",
+    "openai-agents>=0.3.3",
     "python-dotenv>=1.1.1",
 ]
 
