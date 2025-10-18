@@ -53,6 +53,6 @@ italian_agent = Agent(
     instructions=INSTRUCTIONS.replace("@@to_language@@", "Italian").replace(
         "@@from_language@@", "Spanish"
     ),
-    handoff_description="An english to italian translator",
+    handoff_description="An spanish to italian translator",
     model=llm_model,
 )

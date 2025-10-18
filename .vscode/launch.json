@@ -12,6 +12,12 @@
       "type": "debugpy",
       "request": "launch",
       "module": "openai_agent.agentic_patterns.tool_selection"
+    },
+    {
+      "name": "handoff",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "openai_agent.agentic_patterns.handoff"
     }
   ]
 }

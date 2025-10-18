@@ -30,6 +30,11 @@ tasks:
     cmds:
       - python -m openai_agent.agentic_patterns.force_tool_use -t custom
 
+  handoffs:
+    desc: "Handoff pattern"
+    cmds:
+      - python -m openai_agent.agentic_patterns.handoff
+
   test-unit:
     desc: "Runs unit tests with pytest"
     cmds:
