@@ -35,6 +35,11 @@ tasks:
     cmds:
       - python -m openai_agent.agentic_patterns.handoff
 
+  guardrail:
+    desc: "Guardrail pattern"
+    cmds:
+      - python -m openai_agent.agentic_patterns.guardrail
+
   test-unit:
     desc: "Runs unit tests with pytest"
     cmds:
